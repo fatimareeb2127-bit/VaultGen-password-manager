@@ -1,0 +1,1419 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>VaultGen | Secure Password Manager</title>
+
+  <meta
+    name="description"
+    content="VaultGen is a modern password generator, credential vault and password security dashboard."
+  >
+
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  >
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- BACKGROUND -->
+  <div class="background-system">
+    <div class="grid-background"></div>
+    <div class="scan-line"></div>
+
+    <span class="particle p1"></span>
+    <span class="particle p2"></span>
+    <span class="particle p3"></span>
+    <span class="particle p4"></span>
+    <span class="particle p5"></span>
+    <span class="particle p6"></span>
+    <span class="particle p7"></span>
+    <span class="particle p8"></span>
+  </div>
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-dark vault-navbar">
+    <div class="container">
+
+      <a class="navbar-brand vault-logo" href="#home">
+        <span class="logo-box">
+          <i class="fa-solid fa-shield-halved"></i>
+        </span>
+
+        <span>
+          Vault<span>Gen</span>
+        </span>
+      </a>
+
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#mainNav"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="mainNav">
+
+        <ul class="navbar-nav mx-auto">
+
+          <li class="nav-item">
+            <a class="nav-link active" href="#home">
+              Overview
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="#generator">
+              Generator
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="#vault">
+              Vault
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="#security">
+              Security
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="#activity">
+              Activity
+            </a>
+          </li>
+
+        </ul>
+
+        <div class="nav-status">
+          <span class="status-dot"></span>
+          Local Mode
+        </div>
+
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- HERO -->
+  <main id="home">
+
+    <section class="hero-section">
+
+      <div class="container">
+
+        <div class="row align-items-center g-5">
+
+          <div class="col-lg-7">
+
+            <div class="hero-badge">
+              <span></span>
+              PRIVATE PASSWORD WORKSPACE
+            </div>
+
+            <h1>
+              Generate.
+              <span>Protect.</span>
+              Control.
+            </h1>
+
+            <p class="hero-description">
+              A modern password generation and credential management
+              workspace designed to help you create stronger digital
+              credentials and identify security risks.
+            </p>
+
+            <div class="hero-actions">
+
+              <a href="#generator" class="btn-main">
+                <i class="fa-solid fa-key"></i>
+                Generate Password
+              </a>
+
+              <a href="#security" class="btn-secondary">
+                <i class="fa-solid fa-shield"></i>
+                Security Center
+              </a>
+
+            </div>
+
+            <div class="hero-meta">
+
+              <div>
+                <i class="fa-solid fa-lock"></i>
+                Browser-local demo
+              </div>
+
+              <div>
+                <i class="fa-solid fa-bolt"></i>
+                Crypto-based generation
+              </div>
+
+              <div>
+                <i class="fa-solid fa-eye-slash"></i>
+                No server required
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div class="col-lg-5">
+
+            <div class="security-orbit">
+
+              <div class="orbit orbit-one"></div>
+              <div class="orbit orbit-two"></div>
+              <div class="orbit orbit-three"></div>
+
+              <div class="shield-core">
+
+                <div class="shield-ring">
+
+                  <i class="fa-solid fa-shield-halved"></i>
+
+                  <strong id="heroScore">
+                    94
+                  </strong>
+
+                  <small>
+                    SECURITY
+                  </small>
+
+                </div>
+
+              </div>
+
+              <div class="orbit-label label-top">
+                <i class="fa-solid fa-fingerprint"></i>
+                Protected
+              </div>
+
+              <div class="orbit-label label-right">
+                <i class="fa-solid fa-lock"></i>
+                Local
+              </div>
+
+              <div class="orbit-label label-bottom">
+                <i class="fa-solid fa-bolt"></i>
+                Active
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- STATS -->
+    <section class="stats-section">
+
+      <div class="container">
+
+        <div class="stats-grid">
+
+          <div class="stat-card reveal">
+
+            <div class="stat-icon">
+              <i class="fa-solid fa-vault"></i>
+            </div>
+
+            <div>
+              <span>Total Credentials</span>
+              <strong id="totalCredentials">0</strong>
+            </div>
+
+          </div>
+
+
+          <div class="stat-card reveal">
+
+            <div class="stat-icon">
+              <i class="fa-solid fa-triangle-exclamation"></i>
+            </div>
+
+            <div>
+              <span>Weak Passwords</span>
+              <strong id="weakPasswords">0</strong>
+            </div>
+
+          </div>
+
+
+          <div class="stat-card reveal">
+
+            <div class="stat-icon">
+              <i class="fa-solid fa-copy"></i>
+            </div>
+
+            <div>
+              <span>Reused Passwords</span>
+              <strong id="reusedPasswords">0</strong>
+            </div>
+
+          </div>
+
+
+          <div class="stat-card reveal">
+
+            <div class="stat-icon">
+              <i class="fa-solid fa-clock"></i>
+            </div>
+
+            <div>
+              <span>Expiring Soon</span>
+              <strong id="expiringPasswords">0</strong>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- GENERATOR -->
+    <section id="generator" class="section-block">
+
+      <div class="container">
+
+        <div class="section-heading reveal">
+
+          <div>
+            <span class="section-tag">
+              <i class="fa-solid fa-key"></i>
+              GENERATOR
+            </span>
+
+            <h2>
+              Build a stronger password
+            </h2>
+
+            <p>
+              Generate random credentials using cryptographically secure
+              browser randomness.
+            </p>
+          </div>
+
+          <div class="keyboard-hint">
+            <kbd>G</kbd>
+            Generate
+          </div>
+
+        </div>
+
+
+        <div class="generator-layout">
+
+          <!-- PASSWORD BUILDER -->
+          <div class="glass-panel generator-panel reveal">
+
+            <div class="panel-header">
+
+              <div>
+                <span class="mini-label">
+                  GENERATED PASSWORD
+                </span>
+
+                <div class="password-output">
+
+                  <span id="passwordOutput">
+                    Generate a password
+                  </span>
+
+                  <div class="output-actions">
+
+                    <button
+                      id="togglePassword"
+                      class="icon-button"
+                      title="Show / hide password"
+                    >
+                      <i class="fa-solid fa-eye"></i>
+                    </button>
+
+                    <button
+                      id="copyPassword"
+                      class="icon-button"
+                      title="Copy password"
+                    >
+                      <i class="fa-regular fa-copy"></i>
+                    </button>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <div class="strength-area">
+
+              <div class="strength-top">
+
+                <span>Password Strength</span>
+
+                <strong id="strengthLabel">
+                  Not generated
+                </strong>
+
+              </div>
+
+              <div class="strength-bar">
+
+                <span id="strengthFill"></span>
+
+              </div>
+
+              <div class="password-metrics">
+
+                <span>
+                  Entropy:
+                  <strong id="entropyValue">0 bits</strong>
+                </span>
+
+                <span>
+                  Estimated:
+                  <strong id="crackTime">—</strong>
+                </span>
+
+              </div>
+
+            </div>
+
+
+            <div class="generator-controls">
+
+              <div class="control-header">
+
+                <span>
+                  Password Length
+                </span>
+
+                <strong id="lengthValue">
+                  20
+                </strong>
+
+              </div>
+
+              <input
+                id="lengthSlider"
+                type="range"
+                min="8"
+                max="64"
+                value="20"
+              >
+
+
+              <div class="option-grid">
+
+                <label class="switch-row">
+                  <span>
+                    <i class="fa-solid fa-font"></i>
+                    Uppercase
+                  </span>
+
+                  <input id="uppercase" type="checkbox" checked>
+                  <span class="switch"></span>
+                </label>
+
+
+                <label class="switch-row">
+                  <span>
+                    <i class="fa-solid fa-font"></i>
+                    Lowercase
+                  </span>
+
+                  <input id="lowercase" type="checkbox" checked>
+                  <span class="switch"></span>
+                </label>
+
+
+                <label class="switch-row">
+                  <span>
+                    <i class="fa-solid fa-hashtag"></i>
+                    Numbers
+                  </span>
+
+                  <input id="numbers" type="checkbox" checked>
+                  <span class="switch"></span>
+                </label>
+
+
+                <label class="switch-row">
+                  <span>
+                    <i class="fa-solid fa-at"></i>
+                    Symbols
+                  </span>
+
+                  <input id="symbols" type="checkbox" checked>
+                  <span class="switch"></span>
+                </label>
+
+
+                <label class="switch-row">
+                  <span>
+                    <i class="fa-solid fa-ban"></i>
+                    Exclude Ambiguous
+                  </span>
+
+                  <input id="ambiguous" type="checkbox" checked>
+                  <span class="switch"></span>
+                </label>
+
+              </div>
+
+            </div>
+
+
+            <div class="generator-actions">
+
+              <button
+                id="generateButton"
+                class="btn-main large"
+              >
+                <i class="fa-solid fa-wand-magic-sparkles"></i>
+                Generate Password
+              </button>
+
+              <button
+                id="saveGenerated"
+                class="btn-outline large"
+              >
+                <i class="fa-solid fa-floppy-disk"></i>
+                Save to Vault
+              </button>
+
+            </div>
+
+          </div>
+
+
+          <!-- ANALYSIS -->
+          <div class="glass-panel analysis-panel reveal">
+
+            <div class="panel-title">
+
+              <div class="title-icon">
+                <i class="fa-solid fa-microscope"></i>
+              </div>
+
+              <div>
+                <h3>Password Analysis</h3>
+                <p>Live credential assessment</p>
+              </div>
+
+            </div>
+
+
+            <div class="analysis-score">
+
+              <div class="mini-score-ring">
+
+                <svg viewBox="0 0 100 100">
+
+                  <circle
+                    cx="50"
+                    cy="50"
+                    r="42"
+                    class="ring-bg"
+                  ></circle>
+
+                  <circle
+                    cx="50"
+                    cy="50"
+                    r="42"
+                    class="ring-progress"
+                    id="analysisRing"
+                  ></circle>
+
+                </svg>
+
+                <strong id="analysisScore">
+                  0
+                </strong>
+
+              </div>
+
+              <div>
+
+                <span class="mini-label">
+                  SECURITY SCORE
+                </span>
+
+                <h3 id="analysisStatus">
+                  Waiting
+                </h3>
+
+                <p>
+                  Analyze your generated password
+                  before saving it.
+                </p>
+
+              </div>
+
+            </div>
+
+
+            <div class="check-list">
+
+              <div id="checkLength">
+                <i class="fa-solid fa-circle-xmark"></i>
+                <span>At least 12 characters</span>
+              </div>
+
+              <div id="checkUpper">
+                <i class="fa-solid fa-circle-xmark"></i>
+                <span>Contains uppercase letters</span>
+              </div>
+
+              <div id="checkNumber">
+                <i class="fa-solid fa-circle-xmark"></i>
+                <span>Contains numbers</span>
+              </div>
+
+              <div id="checkSymbol">
+                <i class="fa-solid fa-circle-xmark"></i>
+                <span>Contains symbols</span>
+              </div>
+
+              <div id="checkUnique">
+                <i class="fa-solid fa-circle-xmark"></i>
+                <span>High character diversity</span>
+              </div>
+
+            </div>
+
+
+            <div class="security-tip">
+
+              <i class="fa-solid fa-lightbulb"></i>
+
+              <div>
+                <strong>Security Tip</strong>
+
+                <p>
+                  Use a unique password for every important
+                  account. Never reuse your email password.
+                </p>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- EXTRA GENERATORS -->
+        <div class="quick-tools">
+
+          <div class="tool-card reveal">
+
+            <div class="tool-icon">
+              <i class="fa-solid fa-comment-dots"></i>
+            </div>
+
+            <div>
+
+              <h3>Passphrase Generator</h3>
+
+              <p>
+                Generate memorable multi-word passwords.
+              </p>
+
+              <div class="tool-result">
+                <span id="passphraseOutput">
+                  Click generate
+                </span>
+
+                <button
+                  id="generatePassphrase"
+                  class="small-action"
+                >
+                  Generate
+                </button>
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div class="tool-card reveal">
+
+            <div class="tool-icon">
+              <i class="fa-solid fa-user"></i>
+            </div>
+
+            <div>
+
+              <h3>Username Generator</h3>
+
+              <p>
+                Create a random username for new accounts.
+              </p>
+
+              <div class="tool-result">
+
+                <span id="usernameOutput">
+                  Click generate
+                </span>
+
+                <button
+                  id="generateUsername"
+                  class="small-action"
+                >
+                  Generate
+                </button>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- VAULT -->
+    <section id="vault" class="section-block">
+
+      <div class="container">
+
+        <div class="section-heading reveal">
+
+          <div>
+
+            <span class="section-tag">
+              <i class="fa-solid fa-vault"></i>
+              PASSWORD VAULT
+            </span>
+
+            <h2>
+              Your credentials
+            </h2>
+
+            <p>
+              Organize, search and inspect your saved credentials.
+            </p>
+
+          </div>
+
+          <button
+            class="btn-main"
+            data-bs-toggle="modal"
+            data-bs-target="#credentialModal"
+          >
+            <i class="fa-solid fa-plus"></i>
+            Add Credential
+          </button>
+
+        </div>
+
+
+        <div class="vault-toolbar glass-panel reveal">
+
+          <div class="search-box">
+
+            <i class="fa-solid fa-magnifying-glass"></i>
+
+            <input
+              id="vaultSearch"
+              type="text"
+              placeholder="Search websites, usernames or notes..."
+            >
+
+          </div>
+
+
+          <select id="categoryFilter">
+
+            <option value="all">
+              All Categories
+            </option>
+
+            <option value="social">
+              Social
+            </option>
+
+            <option value="work">
+              Work
+            </option>
+
+            <option value="finance">
+              Finance
+            </option>
+
+            <option value="shopping">
+              Shopping
+            </option>
+
+            <option value="development">
+              Development
+            </option>
+
+            <option value="other">
+              Other
+            </option>
+
+          </select>
+
+
+          <button
+            id="exportVault"
+            class="tool-button"
+          >
+            <i class="fa-solid fa-download"></i>
+            Export
+          </button>
+
+          <label class="tool-button upload-button">
+
+            <i class="fa-solid fa-upload"></i>
+            Import
+
+            <input
+              id="importVault"
+              type="file"
+              accept=".json"
+              hidden
+            >
+
+          </label>
+
+        </div>
+
+
+        <div id="vaultGrid" class="vault-grid">
+
+          <div class="empty-vault">
+
+            <div class="empty-icon">
+              <i class="fa-solid fa-vault"></i>
+            </div>
+
+            <h3>Your vault is empty</h3>
+
+            <p>
+              Add your first credential to start building
+              your local password workspace.
+            </p>
+
+            <button
+              class="btn-main"
+              data-bs-toggle="modal"
+              data-bs-target="#credentialModal"
+            >
+              Add First Credential
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- SECURITY -->
+    <section id="security" class="section-block">
+
+      <div class="container">
+
+        <div class="section-heading reveal">
+
+          <div>
+
+            <span class="section-tag">
+              <i class="fa-solid fa-shield"></i>
+              SECURITY CENTER
+            </span>
+
+            <h2>
+              Credential health
+            </h2>
+
+            <p>
+              Detect weak, reused and expiring credentials.
+            </p>
+
+          </div>
+
+          <button
+            id="runSecurityScan"
+            class="btn-outline"
+          >
+            <i class="fa-solid fa-radar"></i>
+            Run Security Scan
+          </button>
+
+        </div>
+
+
+        <div class="security-dashboard">
+
+          <div class="security-score-panel glass-panel reveal">
+
+            <span class="mini-label">
+              OVERALL SECURITY
+            </span>
+
+            <div class="large-score">
+
+              <svg viewBox="0 0 220 220">
+
+                <circle
+                  cx="110"
+                  cy="110"
+                  r="92"
+                  class="large-ring-bg"
+                ></circle>
+
+                <circle
+                  cx="110"
+                  cy="110"
+                  r="92"
+                  class="large-ring-progress"
+                  id="securityRing"
+                ></circle>
+
+              </svg>
+
+              <div class="large-score-number">
+
+                <strong id="securityScore">
+                  100
+                </strong>
+
+                <span>/ 100</span>
+
+              </div>
+
+            </div>
+
+            <h3 id="securityTitle">
+              Security baseline
+            </h3>
+
+            <p id="securityDescription">
+              Add credentials to receive a personalized
+              security assessment.
+            </p>
+
+          </div>
+
+
+          <div class="health-panel glass-panel reveal">
+
+            <div class="health-row">
+
+              <div class="health-icon healthy">
+                <i class="fa-solid fa-check"></i>
+              </div>
+
+              <div class="health-content">
+
+                <div>
+                  <strong>Strong Passwords</strong>
+                  <span id="strongCount">0</span>
+                </div>
+
+                <div class="health-track">
+                  <span id="strongBar"></span>
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <div class="health-row">
+
+              <div class="health-icon danger">
+                <i class="fa-solid fa-triangle-exclamation"></i>
+              </div>
+
+              <div class="health-content">
+
+                <div>
+                  <strong>Weak Passwords</strong>
+                  <span id="weakCount">0</span>
+                </div>
+
+                <div class="health-track">
+                  <span id="weakBar"></span>
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <div class="health-row">
+
+              <div class="health-icon warning">
+                <i class="fa-solid fa-copy"></i>
+              </div>
+
+              <div class="health-content">
+
+                <div>
+                  <strong>Reused Passwords</strong>
+                  <span id="reuseCount">0</span>
+                </div>
+
+                <div class="health-track">
+                  <span id="reuseBar"></span>
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <div class="health-row">
+
+              <div class="health-icon warning">
+                <i class="fa-solid fa-clock"></i>
+              </div>
+
+              <div class="health-content">
+
+                <div>
+                  <strong>Expiring Credentials</strong>
+                  <span id="expiryCount">0</span>
+                </div>
+
+                <div class="health-track">
+                  <span id="expiryBar"></span>
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ACTIVITY -->
+    <section id="activity" class="section-block">
+
+      <div class="container">
+
+        <div class="section-heading reveal">
+
+          <div>
+
+            <span class="section-tag">
+              <i class="fa-solid fa-terminal"></i>
+              ACTIVITY
+            </span>
+
+            <h2>
+              Security activity
+            </h2>
+
+            <p>
+              Recent activity performed inside this browser.
+            </p>
+
+          </div>
+
+          <button
+            id="clearActivity"
+            class="btn-outline"
+          >
+            Clear Activity
+          </button>
+
+        </div>
+
+
+        <div class="activity-panel glass-panel reveal">
+
+          <div class="terminal-header">
+
+            <div class="terminal-dots">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+
+            <span>
+              vaultgen://activity
+            </span>
+
+            <span class="terminal-live">
+              <i class="fa-solid fa-circle"></i>
+              LIVE
+            </span>
+
+          </div>
+
+
+          <div id="activityLog" class="activity-log">
+
+            <div class="activity-item">
+
+              <span class="activity-time">
+                NOW
+              </span>
+
+              <i class="fa-solid fa-power-off"></i>
+
+              <span>
+                VaultGen initialized
+              </span>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer class="vault-footer">
+
+      <div class="container">
+
+        <div class="footer-main">
+
+          <div class="footer-brand">
+
+            <div class="vault-logo">
+
+              <span class="logo-box">
+                <i class="fa-solid fa-shield-halved"></i>
+              </span>
+
+              Vault<span>Gen</span>
+
+            </div>
+
+            <p>
+              A browser-based password generation and
+              credential management portfolio project.
+            </p>
+
+          </div>
+
+
+          <div class="footer-warning">
+
+            <i class="fa-solid fa-circle-info"></i>
+
+            <span>
+              Demo note: credentials are stored in browser
+              localStorage. This project does not provide
+              encrypted production-grade password-vault storage.
+            </span>
+
+          </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+          <span>
+            © 2026 VaultGen
+          </span>
+
+          <span>
+            Built with HTML • CSS • JavaScript
+          </span>
+
+        </div>
+
+      </div>
+
+    </footer>
+
+  </main>
+
+
+  <!-- ADD CREDENTIAL MODAL -->
+  <div
+    class="modal fade"
+    id="credentialModal"
+    tabindex="-1"
+  >
+
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+
+      <div class="modal-content vault-modal">
+
+        <div class="modal-header">
+
+          <div>
+
+            <span class="section-tag">
+              NEW CREDENTIAL
+            </span>
+
+            <h3>
+              Add to Vault
+            </h3>
+
+          </div>
+
+          <button
+            type="button"
+            class="btn-close btn-close-white"
+            data-bs-dismiss="modal"
+          ></button>
+
+        </div>
+
+
+        <form id="credentialForm">
+
+          <div class="modal-body">
+
+            <div class="row g-3">
+
+              <div class="col-md-6">
+
+                <label>
+                  Website / Application
+                </label>
+
+                <input
+                  id="siteInput"
+                  class="form-control vault-input"
+                  type="text"
+                  placeholder="github.com"
+                  required
+                >
+
+              </div>
+
+
+              <div class="col-md-6">
+
+                <label>
+                  Username / Email
+                </label>
+
+                <input
+                  id="usernameInput"
+                  class="form-control vault-input"
+                  type="text"
+                  placeholder="name@example.com"
+                >
+
+              </div>
+
+
+              <div class="col-md-8">
+
+                <label>
+                  Password
+                </label>
+
+                <div class="password-field">
+
+                  <input
+                    id="vaultPasswordInput"
+                    class="form-control vault-input"
+                    type="password"
+                    placeholder="Enter password"
+                    required
+                  >
+
+                  <button
+                    type="button"
+                    id="generateModalPassword"
+                  >
+                    <i class="fa-solid fa-wand-magic-sparkles"></i>
+                  </button>
+
+                </div>
+
+              </div>
+
+
+              <div class="col-md-4">
+
+                <label>
+                  Category
+                </label>
+
+                <select
+                  id="categoryInput"
+                  class="form-select vault-input"
+                >
+
+                  <option value="social">
+                    Social
+                  </option>
+
+                  <option value="work">
+                    Work
+                  </option>
+
+                  <option value="finance">
+                    Finance
+                  </option>
+
+                  <option value="shopping">
+                    Shopping
+                  </option>
+
+                  <option value="development">
+                    Development
+                  </option>
+
+                  <option value="other">
+                    Other
+                  </option>
+
+                </select>
+
+              </div>
+
+
+              <div class="col-md-6">
+
+                <label>
+                  Password Expiry
+                </label>
+
+                <input
+                  id="expiryInput"
+                  class="form-control vault-input"
+                  type="date"
+                >
+
+              </div>
+
+
+              <div class="col-md-6">
+
+                <label>
+                  Favorite
+                </label>
+
+                <div class="favorite-option">
+
+                  <input
+                    id="favoriteInput"
+                    type="checkbox"
+                  >
+
+                  <label for="favoriteInput">
+                    Add to favorites
+                  </label>
+
+                </div>
+
+              </div>
+
+
+              <div class="col-12">
+
+                <label>
+                  Notes
+                </label>
+
+                <textarea
+                  id="notesInput"
+                  class="form-control vault-input"
+                  rows="4"
+                  placeholder="Optional security notes..."
+                ></textarea>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div class="modal-footer">
+
+            <button
+              type="button"
+              class="btn-outline"
+              data-bs-dismiss="modal"
+            >
+              Cancel
+            </button>
+
+            <button
+              type="submit"
+              class="btn-main"
+            >
+              <i class="fa-solid fa-lock"></i>
+              Save Credential
+            </button>
+
+          </div>
+
+        </form>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- TOAST -->
+  <div id="toastContainer" class="toast-container"></div>
+
+
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+  ></script>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
